@@ -10,15 +10,13 @@ module.exports = {
     dialect: process.env.DB_DIALECT_DEV,
   },
   production: {
-    username: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME,
-    host: process.env.DB_HOST,
-    dialectOptions: {
-      ssl: {
-        rejectUnauthorized: false,
+      use_env_variable: 'DATABASE_URL',
+      dialect: 'postgres',
+      dialectOptions: {
+          ssl: {
+              require: true,
+              rejectUnauthorized: false, // <<<<<<< YOU NEED THIS TO FIX UNHANDLED REJECTION
+          },
       },
-    },
-    dialect: process.env.DB_DIALECT,
   },
 };
