@@ -10,7 +10,10 @@ module.exports = (() => {
     function initConnection() {
         const client = new Sequelize(process.env.DATABASE_URL, {
             dialectOptions: {
-                ssl: true
+                ssl: {
+                    require: true,
+                    rejectUnauthorized: false
+                }
             },
         });
 
