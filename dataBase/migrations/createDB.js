@@ -7,6 +7,8 @@ module.exports = {
             primaryKey: true,
         },
         text: Sequelize.DataTypes.TEXT,
+        updatedAt: Sequelize.DataTypes.DATE,
+        createdAt: Sequelize.DataTypes.DATE,
 
     }).then(() => queryInterface.createTable('message', {
         id: {
@@ -25,7 +27,9 @@ module.exports = {
         },
         date: {
             type: Sequelize.DataTypes.DATE
-        }
+        },
+        updatedAt: Sequelize.DataTypes.DATE,
+        createdAt: Sequelize.DataTypes.DATE,
     })),
 
     down: (queryInterface, Sequelize) => queryInterface.sequelize.transaction((t) => Promise.all([
