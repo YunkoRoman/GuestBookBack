@@ -30,7 +30,7 @@ app.use(express.urlencoded({extended: true}));
 
 //Connect to DB
 dataBase.setModels();
-
+const PORT = process.env.PORT
 app.use('/message', messageRouter);
 app.use('/topic', topicRouter);
 
@@ -49,7 +49,7 @@ app.use((err, req, res, next) => {
         });
 });
 
-app.listen(8080, err => {
+app.listen(PORT, err => {
     if (err) console.error(err);
-    console.log(`Server listen on port ${8080}`);
+    console.log(`Server listen on port ${PORT}`);
 });
