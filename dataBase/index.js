@@ -8,8 +8,10 @@ module.exports = (() => {
 
     const params = config[env];
     function initConnection() {
-        const client = new Sequelize.Sequelize(process.env.DATABASE_URL, {
-            ssl:true
+        const client = new Sequelize(process.env.DATABASE_URL, {
+            dialectOptions: {
+                ssl: true
+            },
         });
 
         // const client = new Sequelize(params.database, params.username, params.password, {
